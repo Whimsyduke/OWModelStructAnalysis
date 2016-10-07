@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CSharpImageLibrary;
 
 namespace OWModelStructAnalysis
 {
@@ -23,6 +24,8 @@ namespace OWModelStructAnalysis
         public MainWindow()
         {
             InitializeComponent();
+            ImageEngineImage dds = new ImageEngineImage("C:\\Dates\\Files\\Ha\\Map\\Map\\Maps\\Hollywood\\2AF\\000000001C32.dds");
+            Image_Texture.Source = dds.GeneratePreview(0, true);
         }
     }
 }

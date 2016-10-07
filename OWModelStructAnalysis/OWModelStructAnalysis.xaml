@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OWModelStructAnalysis"
         xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
+        xmlns:hexeditor="clr-namespace:WPFHexaEditor.Control;assembly=WPFHexaEditor"
         mc:Ignorable="d"
         Title="OWModelStructAnalysis" Height="768" Width="1024">
     <Grid>
@@ -27,21 +28,29 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <GroupBox Header="Base Config:" Grid.Row="0" Height="55" VerticalAlignment="Top">
+                    <GroupBox Header="Base Config:" Grid.Row="0" Height="85" VerticalAlignment="Top">
                         <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="70"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="Base Path:" Grid.Column="0" Margin="3" VerticalAlignment="Center"/>
-                            <TextBox Name="TextBox_BasePath" Grid.Column="1" Margin="3"/>
-                            <Button Name="Button_SelectBasePath" Grid.Column="2" Margin="3" Content="Path"/>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="70"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Base Path:" Grid.Column="0" Margin="3" VerticalAlignment="Center"/>
+                                <TextBox Name="TextBox_BasePath" Grid.Column="1" Margin="3"/>
+                                <Button Name="Button_SelectBasePath" Grid.Column="2" Margin="3" Content="Path"/>
+                            </Grid>
+                            <CheckBox Name="CheckBox_ShowFileHexText" Grid.Row="1" VerticalAlignment="Center" Content="Is Show File Hex Text"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="File Text:" Grid.Row="1">
-                        <avalonedit:TextEditor Name="TextEditor_FileText" WordWrap="True" ShowLineNumbers="True" LineNumbersForeground="Blue"/>
+                    <GroupBox Name="GroupBox_FileText" Header="Show File Hex Text:" Grid.Row="1">
+                        <hexeditor:HexaEditor Name="HexaEditor_FileData" Height="Auto" Width="Auto" FontFamily="Times New Roman" FontSize="16"/>
                     </GroupBox>
+                                        
                 </Grid>
             </TabItem>
             <TabItem Name="TabItem_Model" Header="Model">
@@ -87,7 +96,7 @@
                 </Grid>
             </TabItem>
             <TabItem Name="TabItem_Texture" Header="Texture">
-
+                <Image Name="Image_Texture" Margin="3"/>
             </TabItem>
         </TabControl>
     </Grid>
